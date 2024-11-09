@@ -4,15 +4,15 @@ import numpy as np
 import joblib
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load the saved Random Forest model
+# Loading the saved Catboost Classifier model
 try:
     model = joblib.load('catboost_model.pkl')
-    st.success("Random Forest model loaded successfully!")
+    st.success("Catboost-classifier Churn prediction model loaded successfully !")
 except FileNotFoundError:
     st.error("Model file 'rf_model.pkl' not found. Please make sure the file is in the same directory.")
     st.stop()
 
-# Define columns used during training
+# Defining columns used during training
 model_columns = ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges',
        'gender_Female', 'gender_Male', 'Partner_No', 'Partner_Yes',
        'Dependents_No', 'Dependents_Yes', 'PhoneService_No',
