@@ -9,7 +9,7 @@ try:
     model = joblib.load('catboost_model.pkl')
     st.success("Catboost-classifier Churn prediction model loaded successfully !")
 except FileNotFoundError:
-    st.error("Model file 'rf_model.pkl' not found. Please make sure the file is in the same directory.")
+    st.error(" Please make sure the file is in the same directory.")
     st.stop()
 
 # Defining columns used during training
@@ -141,7 +141,6 @@ def generate_recommendations(user_data):
 
 # Churn prediction and recommendations
 if st.button("Predict Churn and Get Recommendations"):
-    st.write(input_encoded)
     prediction = model.predict(input_encoded)
     churn_prob = model.predict_proba(input_encoded)[0][1]
 
